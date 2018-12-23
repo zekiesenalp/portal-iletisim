@@ -8,19 +8,17 @@ use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
 use yii\captcha\Captcha;
 
-$this->title = 'Contact';
+$this->title = 'İletişim Formu';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="site-contact">
     <h1><?= Html::encode($this->title) ?></h1>
 
-    <p>
-        İki kişinin bildiği sır değildir.
-    </p>
+    
 
     <div class="row">
         <div class="col-lg-5">
-            <?php $form = ActiveForm::begin(['id' => 'contact-form']); ?>
+            <?php $form = ActiveForm::begin(['id' => 'contact-form','options' => ['enctype' => 'multipart/form-data']]); ?>
 
                 <?= $form->field($model, 'ad')->textInput(['autofocus' => true]) ?>
                 <?= $form->field($model, 'soyad') ?>
@@ -28,7 +26,11 @@ $this->params['breadcrumbs'][] = $this->title;
                 <?= $form->field($model, 'email') ?>
 
                 <?= $form->field($model, 'konu') ?>
+                <?php
 
+                if($phone[0] == 1){  echo $form->field($model, 'phone_number'); }
+                if(trim($file[0]) != ""){ echo $form->field($file2, 'file')->fileInput(); } 
+                ?>
                 <?= $form->field($model, 'mesaj')->textarea(['rows' => 6]) ?>
 
                

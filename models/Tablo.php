@@ -2,7 +2,6 @@
 
 namespace kouosl\iletisim\models;
 
-
 use Yii;
 
 /**
@@ -14,6 +13,8 @@ use Yii;
  * @property string $email
  * @property string $konu
  * @property string $mesaj
+ * @property int $phone_number
+ * @property string $file_upload
  */
 class Tablo extends \yii\db\ActiveRecord
 {
@@ -34,26 +35,17 @@ class Tablo extends \yii\db\ActiveRecord
             [['ad', 'soyad', 'email', 'konu', 'mesaj'], 'required'],
             [['date'], 'safe'],
             [['mesaj'], 'string'],
+            [['phone_number'], 'integer'],
             [['ad', 'soyad'], 'string', 'max' => 50],
             [['email', 'konu'], 'string', 'max' => 100],
+            [['file_upload'], 'string', 'max' => 120],
         ];
     }
 
     /**
      * {@inheritdoc}
      */
-    public function attributeLabels()
-    {
-        return [
-            'ad' => 'Ad',
-            'soyad' => 'Soyad',
-            'date' => 'Date',
-            'email' => 'Email',
-            'konu' => 'Konu',
-            'mesaj' => 'Mesaj',
-        ];
-    }
-     public function sendEmail($email)
+     public function sendEmail()
     {
         include 'PHPMailer.php';
         $mail = new PHPMailer();
@@ -71,7 +63,7 @@ class Tablo extends \yii\db\ActiveRecord
         $mail->SetFrom($this->email, $this->ad." ".$this->soyad); // Mail attigimizda gorulecek ismimiz
         $mail->AddAddress($this->email); // Maili gonderecegimiz kisi yani alici
         $mail->Subject = $this->konu; // Konu basligi
-        $mail->Body = $this->mesaj; // Mailin icerigi
+        $mail->Body = $this->mesaj."<br />".$this->phone_number."<br />".$this->file_upload; // Mailin icerigi
         if(!$mail->Send()){
            return false;
         } else {
