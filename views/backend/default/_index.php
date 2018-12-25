@@ -27,6 +27,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
                 <?= $form->field($model, 'mesaj')->textarea(['rows' => 6,'disabled'=>'disabled']) ?>
                 <?= $form->field($sonuc, 'phone_number')->dropDownList(['1' => 'Yes', '0' => 'No'],['prompt'=>'Select Option']); ?>
+                
                 <?= $form->field($sonuc, 'file_upload')->textInput(['maxlength'=>15]) ?>
 		          <div class="form-group">
                     <?= Html::submitButton('Submit', ['class' => 'btn btn-warning', 'name' => 'contact-button']) ?>

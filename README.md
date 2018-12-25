@@ -1,3 +1,8 @@
-# portal-iletisim
+# portal-iletisim - iletişim formu modülü
 
-portal.kouosl/iletisim sayfasında gerekli formlar oluşturuldu. - 22.12.2018
+# 22.12.18
+ - modülün frontend kısmı hazırlandı, formlar yerleştirildi.
+ - e-mail ayarları yapıldı. formu dolduran kullanıcıya e-mail gönderildi.
+
+# 23.12.18
+ - modülün admin kısmı hazırlandı, form oluşturma seçenekleri eklendi.
