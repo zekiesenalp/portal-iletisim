@@ -11,7 +11,7 @@ use yii\captcha\Captcha;
 $this->title = 'İletişim Formu';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="site-contact">
+<div class="site-iletisim">
     <h1><?= Html::encode($this->title) ?></h1>
 
     
@@ -36,7 +36,7 @@ $this->params['breadcrumbs'][] = $this->title;
                
 
                 <div class="form-group">
-                    <?= Html::submitButton('Submit', ['class' => 'btn btn-warning', 'name' => 'contact-button']) ?>
+                    <?= Html::submitButton('Gönder', ['class' => 'btn btn-success', 'name' => 'contact-button']) ?>
                 </div>
 
             <?php ActiveForm::end(); ?>

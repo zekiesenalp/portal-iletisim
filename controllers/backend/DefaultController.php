@@ -26,10 +26,12 @@ class DefaultController extends \kouosl\base\controllers\backend\BaseController
     {
          $sonuc = new Sonuc();
          $model = new Tablo();
+         $sonuc2 = Yii::$app->db->createCommand('SELECT * FROM sonuc order by id desc limit 0,5')->queryAll();
+         $tablo2 = Yii::$app->db->createCommand("SELECT * FROM tablo order by 'date' desc limit 0,5")->queryAll();
          if ($sonuc->load(Yii::$app->request->post()) && $sonuc->validate() && $sonuc->save()) {
            
                 
-                Yii::$app->session->setFlash('success', 'Thank you for contacting us. We will respond to you as soon as possible.');
+                Yii::$app->session->setFlash('success', 'Form başarıyla oluşturuldu.');
           
             
 
@@ -38,6 +40,8 @@ class DefaultController extends \kouosl\base\controllers\backend\BaseController
             return $this->render('_index', [
                 'model' => $model,
                 'sonuc' => $sonuc,
+                'sonuc2' => $sonuc2,
+                'tablo2' => $tablo2,
             ]);
         }
     }

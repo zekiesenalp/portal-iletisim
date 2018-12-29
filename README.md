@@ -6,3 +6,6 @@
 
 # 23.12.18
  - modülün admin kısmı hazırlandı, form oluşturma seçenekleri eklendi.
+
+# 29.12.18
+ - admin paneli ve layout düzenlemesi yapıldı. 

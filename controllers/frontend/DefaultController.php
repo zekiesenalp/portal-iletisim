@@ -35,9 +35,9 @@ class DefaultController extends \kouosl\base\controllers\frontend\BaseController
                    $file2->file = UploadedFile::getInstance($file2, 'file');
                        $file2->file->saveAs('/var/www/portal/vendor/yiisoft/yii2/web/uploads/' . $file2->file->baseName . '.' . $file2->file->extension);
                      if ($model->sendEmail()) {
-                        Yii::$app->session->setFlash('success', 'Thank you for contacting us. We will respond to you as soon as possible.');
+                        Yii::$app->session->setFlash('success', 'Başarılı. Formun bir kopyası mail adresinize gönderilecektir.');
                         } else {
-                            Yii::$app->session->setFlash('error', 'There was an error sending your message.');
+                            Yii::$app->session->setFlash('error', 'Hata. Bir sorun meydana geldi.');
                         }      
                 
 
