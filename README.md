@@ -45,17 +45,17 @@ Portal iletişim formu modülünü, portal web uygulamasına eklemek için /port
 Yapım Aşamaları
 ============
 
--22.12.18:
+- 22.12.18:
  	- modülün frontend kısmı hazırlandı, formlar yerleştirildi.
 	- e-mail ayarları yapıldı. formu dolduran kullanıcıya e-mail gönderildi.
 
--23.12.18:
+- 23.12.18:
 	- modülün admin kısmı hazırlandı, form oluşturma seçenekleri eklendi.
 
--29.12.18:
+- 29.12.18:
 	- admin paneli ve layout düzenlemesi yapıldı. 
  
--02.01.19:
+- 02.01.19:
 	- kullanıcı paneline captcha eklendi.
 	- layout düzenlemesi yapıldı. 
  
