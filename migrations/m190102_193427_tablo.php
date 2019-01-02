@@ -23,7 +23,7 @@ public function up()
             'konu' => $this->string(100)->notNull(),
             'mesaj' => $this->text()->notNull(),
             'phone_number' => $this->integer()->notNull(),
-            'file_upload' => $this->string(120)->notNull(),
+            'file_upload' => $this->string(120)->notNull()
         ], $tableOptions);
 
     }
