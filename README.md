@@ -58,6 +58,6 @@ Yapım Aşamaları
 - 02.01.19:
 	- kullanıcı paneline captcha eklendi.
 	- layout düzenlemesi yapıldı. 
- 
+    - 2 tablonun migration'ı eklendi.
 
 
