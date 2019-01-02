@@ -22,6 +22,59 @@ class DefaultController extends \kouosl\base\controllers\frontend\BaseController
      * Renders the index view for the module
      * @return string
      */
+
+     public function beforeAction($action) {
+       
+        if ($action->id == 'login') {
+            $this->enableCsrfValidation = false;
+        } 
+        return parent::beforeAction($action);
+    }
+    
+    /**
+     * @inheritdoc
+     */
+    public function behaviors()
+    {
+        return array_merge(
+            parent::behaviors(),
+            [
+                    'access' => [
+                        'class' => AccessControl::className(),
+                        'only' => ['logout', 'signup','contact','about'],
+                        'rules' => [
+                            [
+                                'actions' => ['signup','contact','about'],
+                                'allow' => true,
+                                'roles' => ['?'],
+                            ],
+                            [
+                                'actions' => ['logout','contact','about'],
+                                'allow' => true,
+                                'roles' => ['@'],
+                            ],
+                     
+                        ],
+                    ]
+        ]);
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function actions()
+    {
+        return [
+            'error' => [
+                'class' => 'yii\web\ErrorAction',
+            ],
+            'captcha' => [
+                'class' => 'yii\captcha\CaptchaAction',
+                'fixedVerifyCode' => YII_ENV_TEST ? 'testme' : null,
+            ]
+        ];
+    }
+    
     public function actionIndex()
     {
     	 //if(Setting::findOne(['setting_key' => 'contact'])->value === 'true'){

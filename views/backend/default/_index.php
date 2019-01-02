@@ -52,9 +52,31 @@ $this->params['breadcrumbs'][] = $this->title;
                   ?>
                 </tbody>
             </table>
+                <h1>Gönderilen Son 5 Kayıt</h1>
+            <table class="table table-striped table-dark table-bordered">
+                <thead>
+                    <tr>
+                        <th>Ad</th>
+                        <th>Soyad</th>
+                        <th>Email</th>
+                        <th>Konu</th>
+                        <th>Mesaj</th>
+                        <th>Phone</th>
+                        
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php 
+                  foreach ($tablo2 as $key => $value) {
+                      echo "<tr><th>".$value["ad"]."</th><th>".$value["soyad"]."</th><th>".$value["email"]."</th><th>".$value["konu"]."</th>
+                      <th>".substr($value["mesaj"], 0,50)."</th><th>".$value["phone_number"]."</th></tr>";
+                  }
+                  ?>
+                </tbody>
+            </table>
         </div>
-
-        <div class="col-lg-4">
+        <div class="col-lg-1"></div>
+        <div class="col-lg-7">
              <h1><?= Html::encode($this->title) ?></h1>
             <?php $form = ActiveForm::begin(['id' => 'contact-form']); ?>
 
@@ -79,29 +101,6 @@ $this->params['breadcrumbs'][] = $this->title;
 
             <?php ActiveForm::end(); ?>
         </div>
-               <div class="col-lg-4">
-                <h1>Gönderilen Son 5 Kayıt</h1>
-            <table class="table table-striped table-dark table-bordered">
-                <thead>
-                    <tr>
-                        <th>Ad</th>
-                        <th>Soyad</th>
-                        <th>Email</th>
-                        <th>Konu</th>
-                        <th>Mesaj</th>
-                        <th>Phone</th>
-                        
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php 
-                  foreach ($tablo2 as $key => $value) {
-                      echo "<tr><th>".$value["ad"]."</th><th>".$value["soyad"]."</th><th>".$value["email"]."</th><th>".$value["konu"]."</th>
-                      <th>".substr($value["mesaj"], 0,50)."</th><th>".$value["phone_number"]."</th></tr>";
-                  }
-                  ?>
-                </tbody>
-            </table>
-        </div>
+          
     </div>
 </div>

@@ -21,6 +21,7 @@ class Tablo extends \yii\db\ActiveRecord
     /**
      * {@inheritdoc}
      */
+      public $verifyCode;
     public static function tableName()
     {
         return 'tablo';
