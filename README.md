@@ -2,7 +2,8 @@
 
 Kurulum
 ============
-Portal iletişim formu modülünü, portal web uygulamasına eklemek için /portal dizininde bulunan composer.json dosyasına gidilerek, aşağıdaki kod parçaları repositories ve require kısımlarına eklenir. Composer update'in ardından modül çalışır hale gelecektir.
+Portal iletişim formu modülünü, portal web uygulamasına eklemek için /portal dizininde bulunan composer.json dosyasına gidilerek, aşağıdaki kod parçaları repositories ve require kısımlarına eklenir. Portal dizininde composer update işlemi yapılarak modül yüklenir. 
+
 
 ```bash
 ....
@@ -21,6 +22,16 @@ Portal iletişim formu modülünü, portal web uygulamasına eklemek için /port
 },
 ....
 ```
+
+
+Modülün yüklenmesinin ardından kullanıcı ve yönetici panellerinin çalışması için gerekli olan "tablo" ve "sonuc" isimli veritabanı tabloları, modülün migrations klasörü içerisinde bulunmaktadır. Migrate işlemi için altta bulunan kod parçasının portal dizininde çalıştırılması gerekmektedir.
+
+
+
+```bash
+php yii migrate --migrationPath=@vendor/kouosl/portal-iletisim/migrations --interactive=0
+```
+
 
 
 - Admin paneli: http://portal.kouosl/admin/iletisim
