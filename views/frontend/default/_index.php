@@ -7,6 +7,11 @@
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
 use yii\captcha\Captcha;
+use kouosl\iletisim\Module;
+use \kouosl\site\models\Setting;
+
+
+
 
 $this->title = '';
 $this->params['breadcrumbs'][] = $this->title;
@@ -20,10 +25,22 @@ $this->params['breadcrumbs'][] = $this->title;
         <div class="col-lg-3"></div>
         <div class="col-lg-5">
               <img src="http://ridvankaplan.com/wp-content/themes/graphene/images/headers/nebula.jpg">
-            <h1>İletişim Formu</h1>
-            <?php $form = ActiveForm::begin(['id' => 'contact-form','options' => ['enctype' => 'multipart/form-data']]); ?>
+            <h1> <?php 
+            $lang = yii::$app->session->get('lang');
+			\Yii::$app->language = $lang;
+			yii::$app->session->set('lang',$lang);
+
+			\Yii::$app->language = 'tr-TR'; // /iletisim sayfası default olarak kendini en-US ayarladığı için tr'yi belirtmek zorunda kaldım. Çeviri özelliği çalışıyor. Module.php ayarları yapıldı.
+
+            echo Module::t('iletisim','Contact Form');
+            ?> </h1>
+            <?php 
+
+
+            $form = ActiveForm::begin(['id' => 'contact-form','options' => ['enctype' => 'multipart/form-data']]); ?>
 
                 <?= $form->field($model, 'ad')->textInput(['autofocus' => true]) ?>
+
                 <?= $form->field($model, 'soyad') ?>
 
                 <?= $form->field($model, 'email') ?>

@@ -58,7 +58,7 @@ class Module extends \kouosl\base\Module
 
     public function registerTranslations()
     {
-        Yii::$app->i18n->translations['site/*'] = [
+        Yii::$app->i18n->translations['iletisim/*'] = [
             'class' => 'yii\i18n\PhpMessageSource',
             'sourceLanguage' => 'en-US',
             'basePath' => '@kouosl/iletisim/messages',

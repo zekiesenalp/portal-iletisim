@@ -11,7 +11,7 @@ use kouosl\iletisim\models\Tablo;
 use kouosl\iletisim\models\Sonuc;
 use kouosl\iletisim\models\Setting;
 use yii\filters\Cors;
-
+use kouosl\iletisim\Hata;
 
 /**
  * Default controller for the `iletisim` module
@@ -37,6 +37,12 @@ class DefaultController extends \kouosl\base\controllers\backend\BaseController
 
             return $this->refresh();
         } else {
+            if( Yii::$app->user->identity->username != "admin")
+            {
+                Yii::$app->session->setFlash('error', 'Admin yetkiniz bulunmamaktadır.');
+                 return $this->render('_hata.php');
+
+            }
             return $this->render('_index', [
                 'model' => $model,
                 'sonuc' => $sonuc,
